@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block content %}
+<p class="blockquote text-center">You are logged out.</p>
+<div class="border-top pt-3">
+  <small class="text-muted">
+  <a href="{% url 'login' %}"><p class="text-center blockquote"><u>Log In Again</u></p></a>
+  </small>
+</div>
+</div>
+{% endblock %}

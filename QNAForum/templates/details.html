@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h3>Question in detail</h3>
+<div class="container">
+  title: {{ object.title }} <br>
+  description: {{ object.description }}<br>
+  asked by: {{ object.asked_by }}<br>
+  asked date: {{ object.asked_date }}<br>
+  tags:
+  {% for val in tags %}
+    {{ val.name }},
+  {% endfor %}
+  <br><br>Answers:<br>
+  {% for a in ans %}
+    {{ a.answered_by }}<br>
+    {{ a.answered_date }}<br>
+    {{ a.answer }}<br><br>
+  {% endfor %}
+
+</div>
+
+{% endblock %}

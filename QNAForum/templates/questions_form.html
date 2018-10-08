@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style media="screen">
+  .col-6{
+    background: #f2f2f2;
+  }
+</style>
+  <div class="container col-6">
+  <form method="POST" novalidate>
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="font-weight-light pt-2">Ask your question here!</legend>
+      <small>Please make it clear.</small>
+      <hr>
+      {{ form|crispy }}
+
+    </fieldset>
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-info">Ask</button>
+      </div>
+  </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+  <style media="screen">
+    .content-section{
+      background: #f2f2f2;
+    }
+  </style>
+  <br>
+  <p class="text-center font-weight-light">Hi! Thank you for going through this simple Q&A forum. You can give me feedback regarding this simple website using this form.</p>
+  <div class="content-section">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <h3 class="mt-2">Feedback Form</h3>
+        <small>Field with * are only mandatory.</small>
+          <form method="post">
+            {% csrf_token %}
+            <div class="border">
+            {{ form.your_name|as_crispy_field }}
+            {{ form.your_email|as_crispy_field }}
+            {{ form.your_message|as_crispy_field }}
+          <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+          </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+<!--
+{% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+    </div>
+{% endfor %} -->

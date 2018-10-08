@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load lindex %}
+<h3>index page</h3>
+<h3><a href="{% url 'question-ask' %}">Ask Question!</h3>
+<div class="container">
+{% for val in qu %}
+    <a href="{% url 'question-detail' val.id %}">{{ val.title }} </a><br>
+    description: {{ val.description }}<br>
+    asked by: {{ val.asked_by }}<br>
+    asked date: {{ val.asked_date }}<br>
+    No of answers: {{ ans_count|getindex:forloop.counter0 }}<br>
+    tags:
+    {% for a in tags|getindex:forloop.counter0 %}
+      {{ a }},
+    {% endfor %}
+  <br><br>
+  {% endfor %}
+</div>
+
+{% endblock %}

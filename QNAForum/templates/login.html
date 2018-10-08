@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style media="screen">
+  .col-6{
+    background: #f2f2f2;
+  }
+</style>
+  <div class="container col-6">
+  <form method="POST" novalidate>
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="font-weight-light pt-2">Log in Here!</legend>
+      <hr>
+      {{ form|crispy }}
+    </fieldset>
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-info">Log In</button>
+      </div>
+    </form>
+      <div class="border-top pt-3">
+        <small class="text-muted">
+          Need an Account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
+        </small>
+      </div>
+    </div>
+{% endblock %}
